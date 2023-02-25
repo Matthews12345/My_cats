@@ -19,8 +19,9 @@ public class Cats
 
             statement.executeUpdate("drop table if exists cats");
             statement.executeUpdate("create table cats (id int PRIMARY KEY, type varchar(100) NOT NULL )");
-            statement.executeUpdate("insert into cats values(1, 'British-blue')");
-            statement.executeUpdate("insert into cats values(2, 'Sphinks')");
+            statement.executeUpdate("insert into cats values(1, 'Абиссинская кошка')");
+            statement.executeUpdate("insert into cats values(2, 'Австралийский мист')");
+            statement.executeUpdate("insert into cats values(3, 'Американская жесткошерстная')");
             ResultSet rs = statement.executeQuery("select * from cats");
             while(rs.next())
             {
