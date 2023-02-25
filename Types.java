@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class Cats {
+public class Types {
     public static void main(String[] args) {
         Connection connection = null;
         try {
@@ -15,13 +15,13 @@ public class Cats {
             Statement statement = connection.createStatement();
             statement.setQueryTimeout(30);  // set timeout to 30 sec.
 
-            statement.executeUpdate("drop table if exists cats");
-            statement.executeUpdate("create table cats (id INTEGER PRIMARY KEY AUTOINCREMENT, type varchar(100) NOT NULL )");
-            statement.executeUpdate("insert into cats values(1, 'Абиссинская кошка')");
+            statement.executeUpdate("drop table if exists types");
+            statement.executeUpdate("create table types (id INTEGER PRIMARY KEY AUTOINCREMENT, type varchar(100) NOT NULL )");
+            statement.executeUpdate("insert into types values(1, 'Абиссинская кошка')");
             for (String each: add_all_types()) {
-                statement.executeUpdate("insert into cats(type) values(" + '"'+ each + '"' + ");");
+                statement.executeUpdate("insert into types(type) values(" + '"'+ each + '"' + ");");
             }
-            ResultSet rs = statement.executeQuery("select * from cats");
+            ResultSet rs = statement.executeQuery("select * from types");
             while(rs.next())
             {
                 // read the result set
