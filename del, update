@@ -1,0 +1,6 @@
+    public static void delete_type(int id) {
+        statement.executeUpdate("delete from cats where id = " + id);
+    }
+    public static void update_type(int id, String new_type) {
+        statement.exrecuteUpdate("update cats set type = " +  new_type +  "where id = " + id);
+    }
