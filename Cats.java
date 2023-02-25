@@ -13,12 +13,14 @@ public class Cats {
 
             statement.executeUpdate("drop table if exists cats");
             statement.executeUpdate("create table cats (id INTEGER PRIMARY KEY AUTOINCREMENT, name varchar(20) NOT NULL, type_id integer not null, age integer not null, weight double foreign key(type_id) references(types.id))");
-            statement.executeUpdate("insert into cats values(1, 'Абиссинская кошка')");
-            update_type(1, "Персидская");
-            delete_type(1);
-            for (String each: add_all_types()) {
-                statement.executeUpdate("insert into cats(type) values(" + '"'+ each + '"' + ");");
-            }
+            statement.executeUpdate("insert into cats values(1, 'Tom', 1,12,20)");
+            statement.executeUpdate("insert into cats(name, type_id, age, weight) values('Kim', 3,14,25)");
+            statement.executeUpdate("insert into cats(name, type_id, age, weight) values('Sam', 6,20,15)");
+//             update_type(1, "Персидская");
+//             delete_type(1);
+//             for (String each: add_all_types()) {
+//                 statement.executeUpdate("insert into cats(type) values(" + '"'+ each + '"' + ");");
+//             }
             ResultSet rs = statement.executeQuery("select * from cats");
             while(rs.next())
             {
